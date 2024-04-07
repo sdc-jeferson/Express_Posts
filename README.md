@@ -1,25 +1,71 @@
-Aula que parei
+# 🚀 Express Post - Primeira API simples
 
-https://www.youtube.com/watch?v=Er3eYeIYSGE&t=304s&ab_channel=ChameleonCode
+<p>
 
-solução erro no path :
+https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
 
-Tive o mesmo problema, fui ler a documentação e utilizando a option de debug deles (ou simplesmente colocar o require dentro de uma váriavel e retornar no console.log), retorna o seguinte erro:
+https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 
+https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
 
-[DEBUG] Failed to load ...\alemdocodigo-introapi-deploy\src\.env ENOENT: 
-no such file or directory, open ...\alemdocodigo-introapi-deploy\src\.env'      
+</p>
 
-A solução é simples, por padrão, o dotenv procura pelo arquivo '.env' dentro do diretório onde o mesmo foi chamado, no caso, foi chamado no app.js, que está dentro da pasta src, MAS, o .env foi criado acima (nível). Por isso ele retorna esse erro.
+Este repositório contém uma aplicação simples em Express.js para gerenciar posts. Ela fornece endpoints para listar, criar, mostrar, atualizar e deletar posts.
 
-Basta passarmos um caminho dentro do config(), segue o exemplo que peguei da documentação de como passar um caminho custom:
+## 🔧 Instalação
 
-require('dotenv').config({ path: '/custom/path/to/.env' })
+Para executar esta aplicação localmente, siga os passos abaixo:
 
-No meu caso, só subi o nível com '..' e passei o arquivo (Sim, é necessário passar o arquivo também.). Ficou assim:
+- Clone este repositório para sua máquina local:
+  `git clone https://github.com/seu-nome/seu-repositorio.git`
 
-config({ path: '../.env' })
+- Dependências
+  `npm install`
 
-Lembrando que segui a mesma estruturação de pasta que ele no curso. Caso você tenha estruturado diferente, basta referenciar no path onde você criou o arquivo .env.
+---
 
-Segue o link da documentação: https://www.npmjs.com/package/dotenv
+## Esta aplicação depende das seguintes bibliotecas:
+
+- express: Para lidar com requisições HTTP e rotas.
+- mongoose: Para interagir com bancos de dados MongoDB.
+- dotenv: Para carregar variáveis de ambiente de um arquivo .env.
+- cors: Para permitir o Compartilhamento de Recursos entre Origens.
+- Certifique-se de ter o Node.js e o npm instalados em sua máquina antes de prosseguir com a instalação.
+
+---
+
+## Uso
+
+Após instalar as dependências, você pode executar a aplicação com o seguinte comando:
+`npm start`
+Isso iniciará o servidor, e ele estará acessível em http://localhost:5000, onde 5000 é o número da porta especificado em suas variáveis de ambiente ou padrão para 3000 se não fornecido.
+
+---
+
+## Endpoints
+
+- GET /list_posts: Recupera uma lista de todos os posts.
+- POST /create_post: Cria um novo post.
+- GET /show_post/:post_id: Mostra um post específico pelo seu ID.
+- PATCH /update_post/:post_id: Atualiza um post específico pelo seu ID.
+- DELETE /delete_post/:post_id: Deleta um post específico pelo seu ID.
+  Cada endpoint espera certos parâmetros ou corpos de requisição, certifique-se de fornecer os dados necessários de acordo com a documentação da API.
+
+## Variáveis de Ambiente
+
+Esta aplicação utiliza variáveis de ambiente para configurar o servidor. Você deve criar um arquivo .env no diretório raiz do projeto e definir as seguintes variáveis:
+
+`PORTA=3000`
+`MONGODB_URI=mongodb+srv://root:jeferson123@cluster0.meqevhf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+
+---
+
+## Contribuição
+
+Contribuições são bem-vindas! Se encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou criar um pull request.
+
+---
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo <a>LICENSE</a> para mais detalhes.

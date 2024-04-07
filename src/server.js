@@ -17,7 +17,7 @@ app.get("/list_posts", async (req, res) => {
     const listPost = await Post.find();
     res.send({ listPost });
   } catch (error) {
-    res.status(400).send("Erro ao listar os posts", error);
+    res.status(400).send({ msg: error });
   }
 });
 
